@@ -1,7 +1,8 @@
 /*eslint-disable*/
-import React from 'react';
+import React, { Component } from 'react';
 // react components for routing our app without refresh
 import { Link } from 'react-router-dom';
+import scrollToComponent from 'react-scroll-to-component';
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -17,6 +18,7 @@ import CustomDropdown from '../../components/CustomDropdown/CustomDropdown.jsx';
 import Button from '../../components/CustomButtons/Button.jsx';
 
 import headerLinksStyle from '../../assets/jss/material-kit-react/components/headerLinksStyle.jsx';
+import componentsStyle from '../../assets/jss/material-kit-react/views/components.jsx';
 
 function HeaderLinks({ ...props }) {
   const { classes } = props;
@@ -24,7 +26,13 @@ function HeaderLinks({ ...props }) {
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
         <Button
-          href="/about"
+          onClick={() =>
+            scrollToComponent(props.About, {
+              offset: 0,
+              align: 'top',
+              duration: 1500
+            })
+          }
           color="transparent"
           target="_blank"
           className={classes.navLink}

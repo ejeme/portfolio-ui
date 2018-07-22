@@ -33,7 +33,9 @@ const componentsStyle = {
   },
   textCenter: {
     textAlign: 'center'
-  }
+  },
+
+  about: {}
 };
 
 export default componentsStyle;

@@ -1,4 +1,5 @@
 import React from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 // react components for routing our app without refresh
@@ -24,6 +25,7 @@ import SkillsSection from './Sections/SkillsSection.jsx';
 import TeamSection from './Sections/TeamSection.jsx';
 import WorkSection from './Sections/WorkSection.jsx';
 import PortfolioSection from './Sections/PortfolioSection';
+import Test from './testscroll';
 
 class Home extends React.Component {
   render() {
@@ -41,7 +43,22 @@ class Home extends React.Component {
             color: '#37474F'
           }}
           {...rest}
-        />
+        >
+          <Button
+            onClick={() =>
+              scrollToComponent(this.About, {
+                offset: 0,
+                align: 'top',
+                duration: 1500
+              })
+            }
+            color="transparent"
+            target="_blank"
+            className={classes.navLink}
+          >
+            /> About
+          </Button>
+        </Header>
         <Parallax image={require('../../assets/img/ejeme-2.JPG')}>
           <div className={classes.container}>
             <GridContainer>
@@ -56,10 +73,16 @@ class Home extends React.Component {
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
-            <ProductSection />
+            <ProductSection
+              className="about"
+              ref={ProductSection => {
+                this.About = ProductSection;
+              }}
+            />
             <SkillsSection />
             <PortfolioSection />
             <WorkSection />
+            <Test />
           </div>
         </div>
         <Footer />
