@@ -82,7 +82,6 @@ class Home extends React.Component {
             <SkillsSection />
             <PortfolioSection />
             <WorkSection />
-            <Test />
           </div>
         </div>
         <Footer />
