@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "app",
+      "script": "./server.js",
+      "instances": "1",
+      "exec_mode": "fork",
+      "watch_options": {
+        "persistent": true,
+        "ignoreInitial": false
+      }
+    }
+  ]
+}
